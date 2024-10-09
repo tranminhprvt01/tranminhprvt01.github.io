@@ -1,9 +1,6 @@
 ---
 title: "WannaGame Freshman 2022 writeup"
 layout: post
-date: 2022
-image: /assets/images/markdown.jpg
-headerImage: false
 tag:
 - crypto
 - ctf
