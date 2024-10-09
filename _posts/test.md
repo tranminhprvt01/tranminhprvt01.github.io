@@ -1,3 +1,19 @@
+---
+title: "WannaGame Freshman 2022 writeup"
+layout: post
+date: 2022
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- crypto
+- ctf
+- beginner
+star: true
+category: blog
+author: tranminhprvt01
+description: Writeup for challenges I solved in WannaGame Freshman 2022
+---
+
 # WannaGame Freshman 2022 writeup
 
 
