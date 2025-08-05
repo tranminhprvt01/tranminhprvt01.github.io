@@ -14,31 +14,27 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  # Job này chỉ có MỘT nhiệm vụ: Build và Deploy
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v4
 
-      - name: Install and build Astro
+      # Action này sẽ tự động:
+      # 1. Cài đặt Node.js và pnpm
+      # 2. Cài đặt dependencies (pnpm install)
+      # 3. Build trang Astro (pnpm run build)
+      # 4. Chuẩn bị artifact để deploy
+      - name: Build with Astro
         uses: withastro/action@v2
         with:
-          node-version: 20
-          # Nếu bạn dùng pnpm thì bỏ dấu # ở dòng dưới
-          package-manager: pnpm 
+          package-manager: pnpm
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
+      # Action này sẽ lấy artifact đã được tạo ở bước trên và deploy nó
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
