@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: 20
           # Nếu bạn dùng pnpm thì bỏ dấu # ở dòng dưới
-          # package-manager: pnpm 
+          package-manager: pnpm 
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
