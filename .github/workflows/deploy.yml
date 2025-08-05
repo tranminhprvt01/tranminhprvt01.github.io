@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Kích hoạt workflow mỗi khi bạn push code lên nhánh `main`
+  push:
+    branches: [main]
+  # Cho phép bạn chạy workflow này thủ công từ tab Actions trên GitHub
+  workflow_dispatch:
+
+# Cấp quyền cho job này để clone repo và tạo một deployment trang
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository
+        uses: actions/checkout@v4
+
+      - name: Install and build Astro
+        uses: withastro/action@v2
+        with:
+          node-version: 20
+          # Nếu bạn dùng pnpm thì bỏ dấu # ở dòng dưới
+          # package-manager: pnpm 
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
