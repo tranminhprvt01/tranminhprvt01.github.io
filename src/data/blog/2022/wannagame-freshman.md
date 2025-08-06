@@ -13,7 +13,7 @@ description:
 ---
 
 # TL;DR
-Hey ✌️, this is my first ever official writeup I wrote since became a freshman of UIT-VNUHCM. So there are spaghetti codes, messy explained everywhere (due to moving from hackmd to here also). Im really appreciate this post, so I always keep it as a reminder of all the progess I made so far.
+Hey ✌️, this is my first ever official writeup I wrote since became a freshman of UIT-VNUHCM. So there are spaghetti codes, messy explanation everywhere (due to moving from hackmd to here also). Im really appreciate this post, so I always keep it as a reminder of all the progess I have made so far.
 
 
 ## Table of contents
