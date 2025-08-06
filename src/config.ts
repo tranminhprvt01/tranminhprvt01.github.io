@@ -4,7 +4,7 @@ export const SITE = {
   profile: "https://github.com/tranminhprvt01",
   desc: "A blog about CTF writeups and security research",
   title: "Home",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "watt.png",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
